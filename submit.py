@@ -39,4 +39,4 @@ for folder in folders:
     
     command = "prj2sinSGE -d -C -f 1801,30,100,0,0 -I 1 -p {0}####.tif --jobname={0}_fltp --queue=tomcat_offline.q -Y 11.999,0.65E-6,3.7e-8,2.3e-10,0.008 -g 3 -o /sls/X02DA/data/e13657/Data10/matteo_high_resolution/{0}/fltp/ /sls/X02DA/data/e13657/Data10/matteo_high_resolution/{0}/tif/;prj2sinSGE -d -g 0 -I 0 -f 1801,0,0,0,0 -k 1 --hold={0}_fltp --jobname={0}_sin --queue=tomcat_offline.q -j 50 -p {0}####.fltp.DMP -o /sls/X02DA/data/e13657/Data10/matteo_high_resolution/{0}/sin/ /sls/X02DA/data/e13657/Data10/matteo_high_resolution/{0}/fltp/;"
 
-    print(command)
+    print(command.format(folder))
