@@ -30,18 +30,13 @@ folders = [
 ]
 
 for folder in folders:
-    is os.path.isdir(folder + "/sin"):
+    if os.path.isdir(
+        os.path.join(
+            "..",
+            folder,
+            "sin"):
         continue
     
-    command = "prj2sinSGE -d -C -f 1801,30,100,0,0 -I 1 -p
-    ko373_LL_smoke_1####.tif --jobname=ko373_LL_smoke_1_fltp
-    --queue=tomcat_offline.q -Y 11.999,0.65E-6,3.7e-8,2.3e-10,0.008 -g 3 -o
-    /sls/X02DA/data/e13657/Data10/matteo_high_resolution/ko373_LL_smoke_1/fltp/
-    /sls/X02DA/data/e13657/Data10/matteo_high_resolution/ko373_LL_smoke_1/tif/;prj2sinSGE
-    -d -g 0 -I 0 -f 1801,0,0,0,0 -k 1 --hold=ko373_LL_smoke_1_fltp
-    --jobname=ko373_LL_smoke_1_sin --queue=tomcat_offline.q -j 50 -p
-    ko373_LL_smoke_1####.fltp.DMP -o
-    /sls/X02DA/data/e13657/Data10/matteo_high_resolution/ko373_LL_smoke_1/sin/
-    /sls/X02DA/data/e13657/Data10/matteo_high_resolution/ko373_LL_smoke_1/fltp/;"
+    command = "prj2sinSGE -d -C -f 1801,30,100,0,0 -I 1 -p {0}####.tif --jobname={0}_fltp --queue=tomcat_offline.q -Y 11.999,0.65E-6,3.7e-8,2.3e-10,0.008 -g 3 -o /sls/X02DA/data/e13657/Data10/matteo_high_resolution/{0}/fltp/ /sls/X02DA/data/e13657/Data10/matteo_high_resolution/{0}/tif/;prj2sinSGE -d -g 0 -I 0 -f 1801,0,0,0,0 -k 1 --hold={0}_fltp --jobname={0}_sin --queue=tomcat_offline.q -j 50 -p {0}####.fltp.DMP -o /sls/X02DA/data/e13657/Data10/matteo_high_resolution/{0}/sin/ /sls/X02DA/data/e13657/Data10/matteo_high_resolution/{0}/fltp/;"
 
     print(command)
